@@ -18,7 +18,7 @@ Localizable.strings
 
 Generated file:
 
-```
+```swift
 
 //
 //  Strings.swift

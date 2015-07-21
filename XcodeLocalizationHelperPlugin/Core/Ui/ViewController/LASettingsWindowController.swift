@@ -12,6 +12,8 @@ import AppKit
 
 class LHSettingsWindowController : NSWindowController {
     
+    @IBOutlet weak var runAtBuildTimeCheckBox: NSButton?
+    
     convenience init() {
         self.init(windowNibName: "LHSettingWindow")
     }

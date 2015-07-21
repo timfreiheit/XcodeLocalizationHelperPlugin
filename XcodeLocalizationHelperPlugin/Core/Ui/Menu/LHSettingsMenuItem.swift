@@ -26,15 +26,14 @@ class LHSettingsMenuItem : NSMenuItem {
     }
     
     func doMenuAction(){
-        
+        // show settings
         self.windowController = LHSettingsWindowController()
         if let window = windowController?.window {
             NSApp.keyWindow??.beginSheet(window, completionHandler: { respone in
                 self.windowController = nil
             })
-        } else {
-            println("Couldn't obtain window for Plugin")
         }
+        
     }
     
 }

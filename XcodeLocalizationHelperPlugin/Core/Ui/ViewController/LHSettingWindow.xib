@@ -4,18 +4,110 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="LASettingsWindowController"/>
+        <customObject id="-2" userLabel="File's Owner" customClass="LHSettingsWindowController" customModule="XcodeLocalizationHelperPlugin" customModuleProvider="target">
+            <connections>
+                <outlet property="runAtBuildTimeCheckBox" destination="Y8X-GB-eJ1" id="P3z-xW-bFy"/>
+            </connections>
+        </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" animationBehavior="default" id="QvC-M9-y7g">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+        <window title="Settings" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" animationBehavior="default" id="QvC-M9-y7g">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+            <rect key="contentRect" x="196" y="240" width="384" height="321"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <rect key="frame" x="0.0" y="-1" width="384" height="321"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="rwG-S4-X4a">
+                        <rect key="frame" x="0.0" y="0.0" width="384" height="321"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tAT-JJ-bNT">
+                                <rect key="frame" x="32" y="135" width="332" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="/Localization" drawsBackground="YES" id="YfX-E5-mi5">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y2P-Bq-MWW">
+                                <rect key="frame" x="30" y="183" width="51" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Output:" id="xXh-tl-mkM">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mWY-xl-nMP">
+                                <rect key="frame" x="87" y="284" width="210" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="XcodeLocalizationHelperPlugin" id="V4b-NT-lVY">
+                                    <font key="font" metaFont="systemBold"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nId-d7-Zgk">
+                                <rect key="frame" x="32" y="110" width="49" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Ignore:" id="jhp-3f-dmk">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ulJ-M8-iqV">
+                                <rect key="frame" x="32" y="53" width="332" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Example/Path1;ExamplePath2" drawsBackground="YES" id="3HL-CK-iZC">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bhi-lQ-OvE">
+                                <rect key="frame" x="32" y="75" width="334" height="34"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Ignore files located in the given paths. Select multiple paths by seperating them using ';'" id="JKz-01-aCV">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6b2-qo-UbD">
+                                <rect key="frame" x="30" y="160" width="336" height="21"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="The Path all generated files will be located" id="jwy-TZ-5MA">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="apD-lw-SaJ">
+                                <rect key="frame" x="30" y="216" width="306" height="18"/>
+                                <buttonCell key="cell" type="check" title="Split generated files depending on their tables" bezelStyle="regularSquare" imagePosition="left" inset="2" id="XeW-eH-cCx">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y8X-GB-eJ1">
+                                <rect key="frame" x="30" y="236" width="98" height="18"/>
+                                <buttonCell key="cell" type="check" title="Run at Build" bezelStyle="regularSquare" imagePosition="left" inset="2" id="mqp-gW-Zs8">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="mWY-xl-nMP" firstAttribute="top" secondItem="rwG-S4-X4a" secondAttribute="top" constant="20" id="fb0-Da-taL"/>
+                            <constraint firstAttribute="centerX" secondItem="mWY-xl-nMP" secondAttribute="centerX" id="lCD-jp-7ot"/>
+                        </constraints>
+                    </customView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="rwG-S4-X4a" secondAttribute="bottom" id="JEM-pt-mfH"/>
+                    <constraint firstAttribute="trailing" secondItem="rwG-S4-X4a" secondAttribute="trailing" id="a0z-6o-CDM"/>
+                    <constraint firstItem="rwG-S4-X4a" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="nO4-5S-NeU"/>
+                    <constraint firstItem="rwG-S4-X4a" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="yWn-xG-vqf"/>
+                </constraints>
             </view>
+            <point key="canvasLocation" x="397" y="290.5"/>
         </window>
     </objects>
 </document>

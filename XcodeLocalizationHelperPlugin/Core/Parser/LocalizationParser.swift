@@ -25,6 +25,7 @@ class LocalizationParser {
         }
         
         var string = readFileContent(filePath)
+        
         if string == nil {
             println("Error while reading file")
             return nil
@@ -40,13 +41,15 @@ class LocalizationParser {
         
         var localizations: [Localization] = []
         
-        var lineOffset = 0
+        //var lineOffset = 0
         (string! as NSString).enumerateLinesUsingBlock({(line, stop) in
             var keyRange: NSRange?
             var valueRange: NSRange?
             var key: String? = nil
             var value: String? = nil
-            var result = stringLineRegularExpression.firstMatchInString(line, options: nil, range: NSMakeRange(0, (line as NSString).length))
+            
+            let range: NSRange = NSMakeRange(0, count(line))
+            var result = stringLineRegularExpression.firstMatchInString(line, options: nil, range: range)
             
             // parse key and value from line
             if result?.range.location != NSNotFound && result?.numberOfRanges == 5 {
@@ -66,8 +69,8 @@ class LocalizationParser {
                 var localization = Localization(key: key, value: value, language: languageDesignation, tableName: tableName)
                 localizations.append(localization)
             }
-            var lineRange: NSRange = (string! as NSString).lineRangeForRange(NSMakeRange(lineOffset, 0))
-            lineOffset += lineRange.length
+            /*var lineRange: NSRange = (string! as NSString).lineRangeForRange(NSMakeRange(lineOffset, 0))
+            lineOffset += lineRange.length*/
             
         })
         return localizations
@@ -77,6 +80,7 @@ class LocalizationParser {
         var error: NSError?
         var string = String(contentsOfFile: filePath, encoding: NSUTF8StringEncoding, error: &error)
         if string == nil {
+            //println("Count not read \(filePath) using UTF8")
             string = String(contentsOfFile: filePath, encoding: NSUTF16StringEncoding, error: &error)
             if (string == nil) {
                 println("\(error?.localizedDescription)")

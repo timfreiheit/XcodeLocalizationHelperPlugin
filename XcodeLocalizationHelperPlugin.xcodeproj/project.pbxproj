@@ -14,11 +14,12 @@
 		CA337A4C1B5BF8E4004B4AEB /* LocalizationConstantsFileGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA337A3D1B5BF8E4004B4AEB /* LocalizationConstantsFileGenerator.swift */; };
 		CA337A4D1B5BF8E4004B4AEB /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA337A3E1B5BF8E4004B4AEB /* Menu.swift */; };
 		CA337A4E1B5BF8E4004B4AEB /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA337A401B5BF8E4004B4AEB /* Localization.swift */; };
-		CA337A4F1B5BF8E4004B4AEB /* LocalizationParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA337A421B5BF8E4004B4AEB /* LocalizationParser.swift */; };
-		CA337A501B5BF8E4004B4AEB /* IDEKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CA337A441B5BF8E4004B4AEB /* IDEKitHelper.m */; };
 		CA337A511B5BF8E4004B4AEB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CA337A451B5BF8E4004B4AEB /* Info.plist */; };
 		CA337A521B5BF8E4004B4AEB /* NSObject_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA337A461B5BF8E4004B4AEB /* NSObject_Extension.swift */; };
 		CA337A531B5BF8E4004B4AEB /* Plugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA337A471B5BF8E4004B4AEB /* Plugin.swift */; };
+		CAB4CE731B5EC429007D866A /* LocalizationParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB4CE721B5EC429007D866A /* LocalizationParser.swift */; };
+		CAB4CE791B5EC4C1007D866A /* IDEConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB4CE751B5EC4C1007D866A /* IDEConstants.swift */; };
+		CAB4CE7A1B5EC4C1007D866A /* IDEKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB4CE771B5EC4C1007D866A /* IDEKitHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,13 +32,14 @@
 		CA337A3D1B5BF8E4004B4AEB /* LocalizationConstantsFileGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationConstantsFileGenerator.swift; sourceTree = "<group>"; };
 		CA337A3E1B5BF8E4004B4AEB /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		CA337A401B5BF8E4004B4AEB /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
-		CA337A421B5BF8E4004B4AEB /* LocalizationParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationParser.swift; sourceTree = "<group>"; };
-		CA337A431B5BF8E4004B4AEB /* IDEKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEKitHelper.h; sourceTree = "<group>"; };
-		CA337A441B5BF8E4004B4AEB /* IDEKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEKitHelper.m; sourceTree = "<group>"; };
 		CA337A451B5BF8E4004B4AEB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA337A461B5BF8E4004B4AEB /* NSObject_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObject_Extension.swift; sourceTree = "<group>"; };
 		CA337A471B5BF8E4004B4AEB /* Plugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plugin.swift; sourceTree = "<group>"; };
-		CA337A551B5BF988004B4AEB /* XcodePrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XcodePrivate.h; path = Core/XcodePrivate.h; sourceTree = "<group>"; };
+		CAB4CE721B5EC429007D866A /* LocalizationParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationParser.swift; sourceTree = "<group>"; };
+		CAB4CE751B5EC4C1007D866A /* IDEConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDEConstants.swift; sourceTree = "<group>"; };
+		CAB4CE761B5EC4C1007D866A /* IDEKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEKitHelper.h; sourceTree = "<group>"; };
+		CAB4CE771B5EC4C1007D866A /* IDEKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEKitHelper.m; sourceTree = "<group>"; };
+		CAB4CE781B5EC4C1007D866A /* XcodePrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodePrivate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,8 +84,8 @@
 		CA337A361B5BF8E4004B4AEB /* XcodeLocalizationHelperPlugin */ = {
 			isa = PBXGroup;
 			children = (
-				CA337A561B5BF98F004B4AEB /* IDEHelper */,
 				CA337A371B5BF8E4004B4AEB /* Bridging-Header.h */,
+				CAB4CE741B5EC4C1007D866A /* IDEHelper */,
 				CA337A381B5BF8E4004B4AEB /* Core */,
 				CA337A451B5BF8E4004B4AEB /* Info.plist */,
 				CA337A461B5BF8E4004B4AEB /* NSObject_Extension.swift */,
@@ -95,11 +97,11 @@
 		CA337A381B5BF8E4004B4AEB /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				CAB4CE711B5EC403007D866A /* Parser */,
 				CA337A391B5BF8E4004B4AEB /* Extensions */,
 				CA337A3B1B5BF8E4004B4AEB /* Generator */,
 				CA337A3E1B5BF8E4004B4AEB /* Menu.swift */,
 				CA337A3F1B5BF8E4004B4AEB /* Model */,
-				CA337A411B5BF8E4004B4AEB /* Utils */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -129,22 +131,24 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		CA337A411B5BF8E4004B4AEB /* Utils */ = {
+		CAB4CE711B5EC403007D866A /* Parser */ = {
 			isa = PBXGroup;
 			children = (
-				CA337A421B5BF8E4004B4AEB /* LocalizationParser.swift */,
+				CAB4CE721B5EC429007D866A /* LocalizationParser.swift */,
 			);
-			path = Utils;
+			name = Parser;
+			path = Extensions/Parser;
 			sourceTree = "<group>";
 		};
-		CA337A561B5BF98F004B4AEB /* IDEHelper */ = {
+		CAB4CE741B5EC4C1007D866A /* IDEHelper */ = {
 			isa = PBXGroup;
 			children = (
-				CA337A551B5BF988004B4AEB /* XcodePrivate.h */,
-				CA337A431B5BF8E4004B4AEB /* IDEKitHelper.h */,
-				CA337A441B5BF8E4004B4AEB /* IDEKitHelper.m */,
+				CAB4CE751B5EC4C1007D866A /* IDEConstants.swift */,
+				CAB4CE761B5EC4C1007D866A /* IDEKitHelper.h */,
+				CAB4CE771B5EC4C1007D866A /* IDEKitHelper.m */,
+				CAB4CE781B5EC4C1007D866A /* XcodePrivate.h */,
 			);
-			name = IDEHelper;
+			path = IDEHelper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,11 +222,12 @@
 				CA337A4A1B5BF8E4004B4AEB /* String_Extension.swift in Sources */,
 				CA337A4E1B5BF8E4004B4AEB /* Localization.swift in Sources */,
 				CA337A4B1B5BF8E4004B4AEB /* FileGenerator.swift in Sources */,
+				CAB4CE731B5EC429007D866A /* LocalizationParser.swift in Sources */,
 				CA337A4D1B5BF8E4004B4AEB /* Menu.swift in Sources */,
 				CA337A4C1B5BF8E4004B4AEB /* LocalizationConstantsFileGenerator.swift in Sources */,
-				CA337A501B5BF8E4004B4AEB /* IDEKitHelper.m in Sources */,
-				CA337A4F1B5BF8E4004B4AEB /* LocalizationParser.swift in Sources */,
 				CA337A521B5BF8E4004B4AEB /* NSObject_Extension.swift in Sources */,
+				CAB4CE791B5EC4C1007D866A /* IDEConstants.swift in Sources */,
+				CAB4CE7A1B5EC4C1007D866A /* IDEKitHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

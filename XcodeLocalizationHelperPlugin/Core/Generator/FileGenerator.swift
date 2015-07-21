@@ -16,17 +16,35 @@ class FileGenerator {
         
         println("generate files for project in: \(projectDir)")
         
-        var values = parseLocalizationFiles(projectDir)
+        var values : [Localization] = []
         
-        var tableNames = Set<String>()
+        var files = searchLocalizationFiles(projectDir);
         
-        for value in values {
-            tableNames.insert(value.tableName)
+        var parser = LocalizationParser()
+        for file in files {
+            var localiztions = parser.localizationsFromContentsOfFile(projectDir + "/" + file)
+            if let localiztions = localiztions {
+                values += parser.filterNotValidKeys(localiztions)
+            }
         }
         
         var folder = projectDir.stringByAppendingPathComponent("Localization")
         if (!NSFileManager.defaultManager().fileExistsAtPath(folder)) {
             NSFileManager.defaultManager() .createDirectoryAtPath(folder, withIntermediateDirectories: false, attributes: nil, error: nil)
+        }
+        
+        self.createLocalizationFiles(folder, values: values)
+    
+    }
+    
+    /**
+     * generate files from localizations
+     */
+    func createLocalizationFiles(folder: String, values : [Localization]){
+        var tableNames = Set<String>()
+        
+        for value in values {
+            tableNames.insert(value.tableName)
         }
         
         tableNames.insert("Strings")
@@ -67,36 +85,12 @@ class FileGenerator {
                 NSAlert(error: error).runModal()
             }
         }
-        
-        let readyAlert: NSAlert = NSAlert()
-        readyAlert.messageText = "Generation completed"
-        readyAlert.informativeText = "Add all files in \(projectDir)/Localization to your project."
-        readyAlert.alertStyle = NSAlertStyle.InformationalAlertStyle
-        readyAlert.addButtonWithTitle("OK")
-        readyAlert.runModal()
-    
+
     }
     
-    
-    private func parseLocalizationFiles(projectDir : String) -> [Localization] {
-        
-        var result : [Localization] = []
-        
-        var files = searchLocalizationFiles(projectDir);
-        
-        var parser = LocalizationParser()
-        for file in files {
-            var localiztions = parser.localizationsFromContentsOfFile(projectDir + "/" + file)
-            if let localiztions = localiztions {
-                result += parser.filterNotValidKeys(localiztions)
-            }else {
-                println("error while parsing")
-            }
-        }
-        
-        return result
-    }
-    
+    /**
+     * search all available .strings files
+     */
     private func searchLocalizationFiles(dir : String) -> [String] {
         
         var files: [String] = []

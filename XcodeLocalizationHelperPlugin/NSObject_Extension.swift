@@ -2,7 +2,7 @@
 //  NSObject_Extension.swift
 //
 //  Created by Tim Freiheit on 17.07.15.
-//  Copyright (c) 2015 SMF. All rights reserved.
+//  Copyright (c) 2015 Tim Freiheit. All rights reserved.
 //
 
 import Foundation

@@ -2,7 +2,7 @@
 //  TestPlugin.swift
 //
 //  Created by Tim Freiheit on 17.07.15.
-//  Copyright (c) 2015 SMF. All rights reserved.
+//  Copyright (c) 2015 Tim Freiheit. All rights reserved.
 //
 
 import AppKit
@@ -19,17 +19,21 @@ var sharedPlugin: Plugin?
  */
 class Plugin: NSObject {
     var bundle: NSBundle
-    //IDEBuildIssueProviderUpdatedIssuesNotification
-    var generateSourceMenu : GenerateLocalizationSourcesMenu
+    
+    var generateMenuItem = LHGenerateMenuItem()
+    var settingsMenuItem = LHSettingsMenuItem()
 
     init(bundle: NSBundle) {
         self.bundle = bundle
-        generateSourceMenu = GenerateLocalizationSourcesMenu()
+        
         super.init()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "onProjectCompiled:", name: IDENotification.IDEBuildOperationDidGenerateOutputFilesNotification, object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didApplicationFinishLaunchingNotification:", name: NSApplicationDidFinishLaunchingNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "menuDidChangeItemNotification:", name: NSMenuDidChangeItemNotification, object: nil)
+        
     }
 
     deinit {
@@ -40,23 +44,35 @@ class Plugin: NSObject {
             // TODO
     }
     
-    func didApplicationFinishLaunchingNotification( noti : NSNotification ){
+    func didApplicationFinishLaunchingNotification(noti : NSNotification ){
         NSNotificationCenter.defaultCenter().removeObserver(self, name: NSApplicationDidFinishLaunchingNotification, object: nil);
-        createMenuItems()
     }
 
-    func createMenuItems() {
+    func menuDidChangeItemNotification(noti : NSNotification ){
+        self.createMenuItemsIfNeeded()
+    }
+    
+    /**
+     * set custom menu items to Xcode menu
+     * checks if menuitems already exists in the menu
+     */
+    func createMenuItemsIfNeeded() {
+        
         var item = NSApp.mainMenu??.itemWithTitle("Edit")
-        if item != nil {
-            var actionMenuItem = NSMenuItem(title:"Generate Localization Constants", action:"doMenuAction", keyEquivalent:"")
-            actionMenuItem.target = self
-            item!.submenu!.addItem(NSMenuItem.separatorItem())
-            item!.submenu!.addItem(actionMenuItem)
+        if let item = item {
+            if ( item.submenu?.itemWithTitle(generateMenuItem.title) == nil ) {
+                item.submenu?.addItem(NSMenuItem.separatorItem())
+                item.submenu?.addItem(generateMenuItem)
+            }
+        }
+        
+        item = NSApp.mainMenu??.itemWithTitle("Editor")
+        if let item = item {
+            if ( item.submenu?.itemWithTitle(settingsMenuItem.title) == nil ) {
+                item.submenu?.insertItem(settingsMenuItem, atIndex: 0)
+            }
         }
     }
     
-    func doMenuAction() {
-        generateSourceMenu.doMenuAction()
-    }
 }
 

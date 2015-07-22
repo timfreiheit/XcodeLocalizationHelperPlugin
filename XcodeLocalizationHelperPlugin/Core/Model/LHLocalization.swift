@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Localization : Printable{
+class LHLocalization : Printable{
     
     var key: String
     var value: String
@@ -23,7 +23,7 @@ class Localization : Printable{
     
     var description: String {
         get{
-            return "Localization{ key:\(key), value: \(value), language: \(language), tableName: \(tableName)}"
+            return "LHLocalization{ key:\(key), value: \(value), language: \(language), tableName: \(tableName)}"
         }
     }
     

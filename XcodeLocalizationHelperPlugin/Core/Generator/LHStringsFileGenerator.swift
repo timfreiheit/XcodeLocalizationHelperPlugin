@@ -10,13 +10,13 @@ import Foundation
 import AppKit
 
 
-class FileGenerator {
+class LHStringsFileGenerator {
     
     func generateFromProject(projectDir : String){
         
         println("generate files for project in: \(projectDir)")
         
-        var values : [Localization] = []
+        var values : [LHLocalization] = []
         
         var files = searchLocalizationFiles(projectDir);
         
@@ -40,7 +40,7 @@ class FileGenerator {
     /**
      * generate files from localizations
      */
-    func createLocalizationFiles(folder: String, values : [Localization]){
+    func createLocalizationFiles(folder: String, values : [LHLocalization]){
         var tableNames = Set<String>()
         
         if (LHPreferences.splitOutput == true) {
@@ -69,7 +69,7 @@ class FileGenerator {
                 keySet.insert(value.key)
             }
             
-            var generator = LocalizationConstantsFileGenerator()
+            var generator = LHLocalizationConstantsFileGenerator()
             
             let className = fileName
             var fileContent = generator.generate(keySet, className: className)

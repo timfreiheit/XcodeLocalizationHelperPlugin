@@ -7,7 +7,7 @@
 
 import Foundation
 
-class LocalizationConstantsFileGenerator {
+class LHLocalizationConstantsFileGenerator {
     
     func generate(keys: Set<String>, className : String) -> String {
         var file = "" +

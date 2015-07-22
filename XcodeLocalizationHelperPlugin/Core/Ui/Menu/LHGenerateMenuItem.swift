@@ -21,12 +21,12 @@ class LHGenerateMenuItem : NSMenuItem {
         
         var projectDir = IDEKitHelper.currentProjectPath()
         if let projectDir = projectDir {
-            var generator = FileGenerator()
+            var generator = LHStringsFileGenerator()
             generator.generateFromProject(projectDir)
             
             let readyAlert: NSAlert = NSAlert()
             readyAlert.messageText = "Generation completed"
-            readyAlert.informativeText = "Add all files in \(projectDir)/Localization to your project."
+            readyAlert.informativeText = "Add all files in \(LHPreferences.outputPath) to your project."
             readyAlert.alertStyle = NSAlertStyle.InformationalAlertStyle
             readyAlert.addButtonWithTitle("OK")
             readyAlert.runModal()

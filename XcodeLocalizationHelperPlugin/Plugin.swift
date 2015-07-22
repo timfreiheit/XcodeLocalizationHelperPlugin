@@ -49,7 +49,7 @@ class Plugin: NSObject {
         if (LHPreferences.runOnBuild == true) {
             var projectDir = IDEKitHelper.currentProjectPath()
             if let projectDir = projectDir {
-                var generator = FileGenerator()
+                var generator = LHStringsFileGenerator()
                 generator.generateFromProject(projectDir)
             }
         }

@@ -18,7 +18,7 @@ let variableRegularExpression = NSRegularExpression(pattern: kVariablePattern, o
  */
 class LocalizationParser {
     
-    func localizationsFromContentsOfFile(filePath: String) -> [Localization]? {
+    func localizationsFromContentsOfFile(filePath: String) -> [LHLocalization]? {
         var tableName: String? = filePath.lastPathComponent.stringByDeletingPathExtension
         if tableName == nil {
             return nil
@@ -39,9 +39,8 @@ class LocalizationParser {
             languageDesignation = languageFolder.stringByDeletingPathExtension
         }
         
-        var localizations: [Localization] = []
+        var localizations: [LHLocalization] = []
         
-        //var lineOffset = 0
         (string! as NSString).enumerateLinesUsingBlock({(line, stop) in
             var keyRange: NSRange?
             var valueRange: NSRange?
@@ -66,11 +65,9 @@ class LocalizationParser {
                 }
             }
             if let key = key , value = value, tableName = tableName {
-                var localization = Localization(key: key, value: value, language: languageDesignation, tableName: tableName)
+                var localization = LHLocalization(key: key, value: value, language: languageDesignation, tableName: tableName)
                 localizations.append(localization)
             }
-            /*var lineRange: NSRange = (string! as NSString).lineRangeForRange(NSMakeRange(lineOffset, 0))
-            lineOffset += lineRange.length*/
             
         })
         return localizations
@@ -80,7 +77,6 @@ class LocalizationParser {
         var error: NSError?
         var string = String(contentsOfFile: filePath, encoding: NSUTF8StringEncoding, error: &error)
         if string == nil {
-            //println("Count not read \(filePath) using UTF8")
             string = String(contentsOfFile: filePath, encoding: NSUTF16StringEncoding, error: &error)
             if (string == nil) {
                 println("\(error?.localizedDescription)")
@@ -92,7 +88,7 @@ class LocalizationParser {
     /**
      * filters all keys which are not valid variable identifiers
      */
-    func filterNotValidKeys(localizations : [Localization]) -> [Localization] {
+    func filterNotValidKeys(localizations : [LHLocalization]) -> [LHLocalization] {
         return localizations.filter({ (l) in
             
             let range: NSRange = NSMakeRange(0, count(l.key))

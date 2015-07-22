@@ -6,7 +6,10 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="LHSettingsWindowController" customModule="XcodeLocalizationHelperPlugin" customModuleProvider="target">
             <connections>
+                <outlet property="ignoredPathsTextField" destination="ulJ-M8-iqV" id="3pc-Hd-4X1"/>
+                <outlet property="outputTextField" destination="tAT-JJ-bNT" id="MjB-WR-8gt"/>
                 <outlet property="runAtBuildTimeCheckBox" destination="Y8X-GB-eJ1" id="P3z-xW-bFy"/>
+                <outlet property="splitFilesCheckBox" destination="apD-lw-SaJ" id="CZb-Gc-pJD"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -92,6 +95,16 @@
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mJw-07-laz">
+                                <rect key="frame" x="299" y="13" width="71" height="32"/>
+                                <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DUd-NU-Un0">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onSave:" target="-2" id="o9c-gz-KYr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>

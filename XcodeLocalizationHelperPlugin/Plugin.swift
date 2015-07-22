@@ -34,6 +34,8 @@ class Plugin: NSObject {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "menuDidChangeItemNotification:", name: NSMenuDidChangeItemNotification, object: nil)
         
+        LHPreferences.registerDefaults()
+        
     }
 
     deinit {

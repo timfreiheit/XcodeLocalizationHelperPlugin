@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		B5B368011AAF6A8500A9D781 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B368001AAF6A8500A9D781 /* AppKit.framework */; };
 		B5B368031AAF6A8500A9D781 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B368021AAF6A8500A9D781 /* Foundation.framework */; };
-		CA337A4A1B5BF8E4004B4AEB /* String_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA337A3A1B5BF8E4004B4AEB /* String_Extension.swift */; };
+		CA2463401B5F7EFF003E314F /* LHPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA24633F1B5F7EFF003E314F /* LHPreferences.swift */; };
+		CA2463421B5F7F2B003E314F /* defaultPrefs.plist in Resources */ = {isa = PBXBuildFile; fileRef = CA2463411B5F7F2B003E314F /* defaultPrefs.plist */; };
+		CA2463441B5F7F6F003E314F /* LHConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2463431B5F7F6F003E314F /* LHConstants.swift */; };
+		CA337A4A1B5BF8E4004B4AEB /* LHExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA337A3A1B5BF8E4004B4AEB /* LHExtension.swift */; };
 		CA337A4B1B5BF8E4004B4AEB /* FileGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA337A3C1B5BF8E4004B4AEB /* FileGenerator.swift */; };
 		CA337A4C1B5BF8E4004B4AEB /* LocalizationConstantsFileGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA337A3D1B5BF8E4004B4AEB /* LocalizationConstantsFileGenerator.swift */; };
 		CA337A4E1B5BF8E4004B4AEB /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA337A401B5BF8E4004B4AEB /* Localization.swift */; };
-		CA337A511B5BF8E4004B4AEB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CA337A451B5BF8E4004B4AEB /* Info.plist */; };
 		CA337A521B5BF8E4004B4AEB /* NSObject_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA337A461B5BF8E4004B4AEB /* NSObject_Extension.swift */; };
 		CA337A531B5BF8E4004B4AEB /* Plugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA337A471B5BF8E4004B4AEB /* Plugin.swift */; };
 		CA670CE51B5EEB3D009A6211 /* LHSettingWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA670CE41B5EEB3D009A6211 /* LHSettingWindow.xib */; };
@@ -29,8 +31,11 @@
 		B5B367FD1AAF6A8500A9D781 /* XcodeLocalizationHelperPlugin.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XcodeLocalizationHelperPlugin.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5B368001AAF6A8500A9D781 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		B5B368021AAF6A8500A9D781 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		CA24633F1B5F7EFF003E314F /* LHPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LHPreferences.swift; sourceTree = "<group>"; };
+		CA2463411B5F7F2B003E314F /* defaultPrefs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defaultPrefs.plist; sourceTree = "<group>"; };
+		CA2463431B5F7F6F003E314F /* LHConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LHConstants.swift; sourceTree = "<group>"; };
 		CA337A371B5BF8E4004B4AEB /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
-		CA337A3A1B5BF8E4004B4AEB /* String_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String_Extension.swift; sourceTree = "<group>"; };
+		CA337A3A1B5BF8E4004B4AEB /* LHExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LHExtension.swift; sourceTree = "<group>"; };
 		CA337A3C1B5BF8E4004B4AEB /* FileGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileGenerator.swift; sourceTree = "<group>"; };
 		CA337A3D1B5BF8E4004B4AEB /* LocalizationConstantsFileGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationConstantsFileGenerator.swift; sourceTree = "<group>"; };
 		CA337A401B5BF8E4004B4AEB /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
@@ -87,6 +92,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CA24633D1B5F7EA9003E314F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CA24633E1B5F7EA9003E314F /* Preferences */,
+				CA2463431B5F7F6F003E314F /* LHConstants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		CA24633E1B5F7EA9003E314F /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				CA24633F1B5F7EFF003E314F /* LHPreferences.swift */,
+				CA2463411B5F7F2B003E314F /* defaultPrefs.plist */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
 		CA337A361B5BF8E4004B4AEB /* XcodeLocalizationHelperPlugin */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +126,7 @@
 		CA337A381B5BF8E4004B4AEB /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				CA24633D1B5F7EA9003E314F /* Utils */,
 				CA670CDB1B5EE09D009A6211 /* Ui */,
 				CAB4CE711B5EC403007D866A /* Parser */,
 				CA337A391B5BF8E4004B4AEB /* Extensions */,
@@ -115,7 +139,7 @@
 		CA337A391B5BF8E4004B4AEB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				CA337A3A1B5BF8E4004B4AEB /* String_Extension.swift */,
+				CA337A3A1B5BF8E4004B4AEB /* LHExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -210,7 +234,7 @@
 		B5B367F51AAF6A8500A9D781 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = AppGrade;
 				TargetAttributes = {
 					B5B367FC1AAF6A8500A9D781 = {
@@ -241,7 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA670CE51B5EEB3D009A6211 /* LHSettingWindow.xib in Resources */,
-				CA337A511B5BF8E4004B4AEB /* Info.plist in Resources */,
+				CA2463421B5F7F2B003E314F /* defaultPrefs.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,8 +276,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA2463401B5F7EFF003E314F /* LHPreferences.swift in Sources */,
 				CA337A531B5BF8E4004B4AEB /* Plugin.swift in Sources */,
-				CA337A4A1B5BF8E4004B4AEB /* String_Extension.swift in Sources */,
+				CA337A4A1B5BF8E4004B4AEB /* LHExtension.swift in Sources */,
 				CA337A4E1B5BF8E4004B4AEB /* Localization.swift in Sources */,
 				CA670CE71B5EEB59009A6211 /* LASettingsWindowController.swift in Sources */,
 				CA337A4B1B5BF8E4004B4AEB /* FileGenerator.swift in Sources */,
@@ -262,6 +287,7 @@
 				CA670CEB1B5EED0E009A6211 /* LHGenerateMenuItem.swift in Sources */,
 				CA337A521B5BF8E4004B4AEB /* NSObject_Extension.swift in Sources */,
 				CA670CE91B5EECD0009A6211 /* LHSettingsMenuItem.swift in Sources */,
+				CA2463441B5F7F6F003E314F /* LHConstants.swift in Sources */,
 				CAB4CE791B5EC4C1007D866A /* IDEConstants.swift in Sources */,
 				CAB4CE7A1B5EC4C1007D866A /* IDEKitHelper.m in Sources */,
 			);

@@ -42,7 +42,7 @@ class LHPreferences {
     
     static var outputPath : String {
         get {
-            return NSUserDefaults.standardUserDefaults().stringForKey(PrefKeys.OutputPath) ?? "/gen"
+            return NSUserDefaults.standardUserDefaults().stringForKey(PrefKeys.OutputPath) ?? "gen"
         }
         
         set(value) {

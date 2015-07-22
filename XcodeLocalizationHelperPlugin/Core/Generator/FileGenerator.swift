@@ -28,7 +28,7 @@ class FileGenerator {
             }
         }
         
-        var folder = projectDir.stringByAppendingPathComponent("Localization")
+        var folder = projectDir.stringByAppendingPathComponent(LHPreferences.outputPath)
         if (!NSFileManager.defaultManager().fileExistsAtPath(folder)) {
             NSFileManager.defaultManager() .createDirectoryAtPath(folder, withIntermediateDirectories: false, attributes: nil, error: nil)
         }
@@ -43,15 +43,18 @@ class FileGenerator {
     func createLocalizationFiles(folder: String, values : [Localization]){
         var tableNames = Set<String>()
         
-        for value in values {
-            tableNames.insert(value.tableName)
+        if (LHPreferences.splitOutput == true) {
+            // generate a constants file for every table
+            for value in values {
+                tableNames.insert(value.tableName)
+            }
         }
         
+        // generate a combined file with all localizations
         tableNames.insert("Strings")
         
         for tableName in tableNames {
             var fileName = tableName
-            println("Table: \(tableName)")
             
             var valuesForTable = values
             if tableName != "Strings" {
@@ -93,15 +96,23 @@ class FileGenerator {
      */
     private func searchLocalizationFiles(dir : String) -> [String] {
         
+        var ignoredPaths = LHPreferences.ignoredPaths ?? []
+        
         var files: [String] = []
         
         let fileManager = NSFileManager.defaultManager()
         let enumerator = fileManager.enumeratorAtPath(dir)!
         
-        for element in enumerator {
+        loop: for element in enumerator {
             if let element  = element as? String {
                 if element.endWith(".strings") {
-                    files += [element]
+                    // check if file should be ignored
+                    for path in ignoredPaths {
+                        if (element.startsWith(path)) {
+                            continue loop
+                        }
+                    }
+                    files.append(element)
                 }
             }
         }

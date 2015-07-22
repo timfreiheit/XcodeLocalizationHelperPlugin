@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>XcodeLocalizationHelperPlugin_OutputPath</key>
-	<string>/gen</string>
+	<string>gen</string>
 	<key>XcodeLocalizationHelperPlugin_SplitOutput</key>
 	<false/>
 	<key>XcodeLocalizationHelperPlugin_RunOnBuild</key>

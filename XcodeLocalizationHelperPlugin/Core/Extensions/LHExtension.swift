@@ -17,6 +17,13 @@ extension String {
         return false
     }
     
+    func startsWith(s: String) -> Bool {
+        var range = self.rangeOfString(s)
+        if let range = range {
+            return range.startIndex  == self.rangeOfString(self)!.startIndex
+        }
+        return false
+    }
 }
 
 extension Array {

@@ -42,8 +42,17 @@ class Plugin: NSObject {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
+    /**
+     * called when xcode compiled a project
+     */
     func onProjectCompiled( noti : NSNotification ){
-            // TODO
+        if (LHPreferences.runOnBuild == true) {
+            var projectDir = IDEKitHelper.currentProjectPath()
+            if let projectDir = projectDir {
+                var generator = FileGenerator()
+                generator.generateFromProject(projectDir)
+            }
+        }
     }
     
     func didApplicationFinishLaunchingNotification(noti : NSNotification ){

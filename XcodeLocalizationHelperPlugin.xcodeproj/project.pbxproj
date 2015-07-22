@@ -19,7 +19,7 @@
 		CA337A521B5BF8E4004B4AEB /* NSObject_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA337A461B5BF8E4004B4AEB /* NSObject_Extension.swift */; };
 		CA337A531B5BF8E4004B4AEB /* Plugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA337A471B5BF8E4004B4AEB /* Plugin.swift */; };
 		CA670CE51B5EEB3D009A6211 /* LHSettingWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA670CE41B5EEB3D009A6211 /* LHSettingWindow.xib */; };
-		CA670CE71B5EEB59009A6211 /* LASettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA670CE61B5EEB59009A6211 /* LASettingsWindowController.swift */; };
+		CA670CE71B5EEB59009A6211 /* LHSettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA670CE61B5EEB59009A6211 /* LHSettingsWindowController.swift */; };
 		CA670CE91B5EECD0009A6211 /* LHSettingsMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA670CE81B5EECD0009A6211 /* LHSettingsMenuItem.swift */; };
 		CA670CEB1B5EED0E009A6211 /* LHGenerateMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA670CEA1B5EED0E009A6211 /* LHGenerateMenuItem.swift */; };
 		CAB4CE731B5EC429007D866A /* LocalizationParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB4CE721B5EC429007D866A /* LocalizationParser.swift */; };
@@ -44,7 +44,7 @@
 		CA337A461B5BF8E4004B4AEB /* NSObject_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObject_Extension.swift; sourceTree = "<group>"; };
 		CA337A471B5BF8E4004B4AEB /* Plugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plugin.swift; sourceTree = "<group>"; };
 		CA670CE41B5EEB3D009A6211 /* LHSettingWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LHSettingWindow.xib; sourceTree = "<group>"; };
-		CA670CE61B5EEB59009A6211 /* LASettingsWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LASettingsWindowController.swift; sourceTree = "<group>"; };
+		CA670CE61B5EEB59009A6211 /* LHSettingsWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LHSettingsWindowController.swift; sourceTree = "<group>"; };
 		CA670CE81B5EECD0009A6211 /* LHSettingsMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LHSettingsMenuItem.swift; sourceTree = "<group>"; };
 		CA670CEA1B5EED0E009A6211 /* LHGenerateMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LHGenerateMenuItem.swift; sourceTree = "<group>"; };
 		CAB4CE721B5EC429007D866A /* LocalizationParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationParser.swift; sourceTree = "<group>"; };
@@ -186,7 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				CA670CE41B5EEB3D009A6211 /* LHSettingWindow.xib */,
-				CA670CE61B5EEB59009A6211 /* LASettingsWindowController.swift */,
+				CA670CE61B5EEB59009A6211 /* LHSettingsWindowController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -284,7 +284,7 @@
 				CA337A4A1B5BF8E4004B4AEB /* LHExtension.swift in Sources */,
 				CABA4ED01B6045B3005EDEE3 /* LHImage.swift in Sources */,
 				CA337A4E1B5BF8E4004B4AEB /* LHLocalization.swift in Sources */,
-				CA670CE71B5EEB59009A6211 /* LASettingsWindowController.swift in Sources */,
+				CA670CE71B5EEB59009A6211 /* LHSettingsWindowController.swift in Sources */,
 				CA337A4B1B5BF8E4004B4AEB /* LHStringsFileGenerator.swift in Sources */,
 				CAB4CE731B5EC429007D866A /* LocalizationParser.swift in Sources */,
 				CA337A4C1B5BF8E4004B4AEB /* LHLocalizationConstantsFileGenerator.swift in Sources */,

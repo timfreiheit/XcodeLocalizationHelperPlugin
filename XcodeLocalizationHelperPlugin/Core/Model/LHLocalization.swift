@@ -7,13 +7,13 @@
 
 import Foundation
 
-class LHLocalization : Printable{
+class LHLocalization : Printable {
     
     var key: String
     var value: String
     var language : String?
     var tableName : String
- 
+    
     init(key: String, value: String, language: String?, tableName : String){
         self.key = key
         self.value = value

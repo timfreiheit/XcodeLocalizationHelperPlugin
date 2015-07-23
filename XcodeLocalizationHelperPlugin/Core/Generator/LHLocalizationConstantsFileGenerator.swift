@@ -39,14 +39,17 @@ class LHLocalizationConstantsFileGenerator {
     }
     
     func generateVariable(key: String) -> String {
+        
+        var name = key.toVariableNameFromValidName()
+        
         var v = "" +
-        "   static var \(key) : String {\n" +
+        "   static var \(name) : String {\n" +
         "       get { \n" +
         "           return localized( \"\(key)\" ) \n" +
         "       } \n" +
         "   }\n" +
         "\n" +
-        "   static func \(key)(comment: String) -> String {\n" +
+        "   static func \(name)(comment: String) -> String {\n" +
         "       return localized( \"\(key)\" , comment: comment)\n" +
         "   }\n"
         return v

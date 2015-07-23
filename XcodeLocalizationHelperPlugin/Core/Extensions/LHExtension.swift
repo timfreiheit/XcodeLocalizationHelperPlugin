@@ -24,6 +24,11 @@ extension String {
         }
         return false
     }
+    
+    func toVariableNameFromValidName() -> String {
+        return self.stringByReplacingOccurrencesOfString("-", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+            .stringByReplacingOccurrencesOfString(".", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+    }
 }
 
 extension Array {
@@ -36,5 +41,29 @@ extension Array {
             }
         }
         return str
+    }
+    
+    func contains<T where T : Equatable>(obj: T) -> Bool {
+        return self.filter({$0 as? T == obj}).count > 0
+    }
+    
+    func contains<T>(predicate: (T?) -> Bool) -> Bool {
+        return self.filter({predicate($0 as? T)}).count > 0
+    }
+    
+}
+
+extension NSRegularExpression {
+    func matchesFully (string: String, options: NSMatchingOptions = nil) -> Bool {
+        let range: NSRange = NSMakeRange(0, count(string))
+        var result = self.matchesInString(string, options: options, range: range) as? [NSTextCheckingResult]
+        if let result = result {
+            for r in result {
+                if r.range.length == range.length {
+                    return true
+                }
+            }
+        }
+        return false
     }
 }

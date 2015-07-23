@@ -7,12 +7,6 @@
 
 import Foundation
 
-let kRegularExpressionPattern: String = "(\"(\\S+.*\\S+)\"|(\\S+.*\\S+))\\s*=\\s*\"(.*)\";$"
-let stringLineRegularExpression = NSRegularExpression(pattern: kRegularExpressionPattern, options: nil, error: nil)!
-
-let kVariablePattern : String = "[a-zA-Z_]*"
-let variableRegularExpression = NSRegularExpression(pattern: kVariablePattern, options: nil, error: nil)!
-
 /**
  * parses .strings files to their different localizations
  */
@@ -90,19 +84,7 @@ class LocalizationParser {
      */
     func filterNotValidKeys(localizations : [LHLocalization]) -> [LHLocalization] {
         return localizations.filter({ (l) in
-            
-            let range: NSRange = NSMakeRange(0, count(l.key))
-            
-            var result = variableRegularExpression.matchesInString(l.key, options: nil, range: range) as? [NSTextCheckingResult]
-            if let result = result {
-                for r in result {
-                    if r.range.length == range.length {
-                        return true
-                    }
-                }
-            }
-            return false
+            validNameRegularExpression.matchesFully(l.key)
         })
-        
     }
 }

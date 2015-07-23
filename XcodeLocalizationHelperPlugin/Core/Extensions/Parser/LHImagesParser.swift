@@ -48,6 +48,15 @@ class LHImagesParser {
         return images
     }
     
+    /**
+    * filters all keys which are not valid variable identifiers
+    */
+    func filterNotValidKeys(images : [LHImage]) -> [LHImage] {
+        return images.filter({ (l) in
+            validNameRegularExpression.matchesFully(l.name)
+        })
+    }
+    
 }
 
 private extension String {

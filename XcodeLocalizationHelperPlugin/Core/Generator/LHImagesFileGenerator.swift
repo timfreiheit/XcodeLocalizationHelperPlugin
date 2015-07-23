@@ -15,6 +15,7 @@ class LHImagesFileGenerator {
         
         let parser = LHImagesParser()
         var images = parser.searchImages(projectDir);
+        images = parser.filterNotValidKeys(images)
         
         var keySet = Set<String>()
         

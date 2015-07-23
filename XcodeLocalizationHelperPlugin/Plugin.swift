@@ -17,31 +17,19 @@ var sharedPlugin: Plugin?
 /**
  * Plugin entry point to setup all connections, menus and notificationlisteners
  */
-class Plugin: NSObject {
-    var bundle: NSBundle
-    
+class Plugin: BasePlugin{
     var generateMenuItem = LHGenerateMenuItem()
     var settingsMenuItem = LHSettingsMenuItem()
 
-    init(bundle: NSBundle) {
-        self.bundle = bundle
-        
-        super.init()
+    override init(bundle: NSBundle) {
+        super.init(bundle: bundle)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "onProjectCompiled:", name: IDENotification.IDEBuildOperationDidGenerateOutputFilesNotification, object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didApplicationFinishLaunchingNotification:", name: NSApplicationDidFinishLaunchingNotification, object: nil)
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "menuDidChangeItemNotification:", name: NSMenuDidChangeItemNotification, object: nil)
-        
         LHPreferences.registerDefaults()
-        
+
     }
 
-    deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
-    }
-    
     /**
      * called when xcode compiled a project
      */
@@ -49,17 +37,19 @@ class Plugin: NSObject {
         if (LHPreferences.runOnBuild == true) {
             var projectDir = IDEKitHelper.currentProjectPath()
             if let projectDir = projectDir {
-                var generator = LHStringsFileGenerator()
-                generator.generateFromProject(projectDir)
+                
+                var stringsGenerator = LHStringsFileGenerator()
+                stringsGenerator.generateFromProject(projectDir)
+                
+                var imagesGenerator = LHImagesFileGenerator()
+                imagesGenerator.generateFromProject(projectDir)
+            
             }
         }
     }
-    
-    func didApplicationFinishLaunchingNotification(noti : NSNotification ){
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: NSApplicationDidFinishLaunchingNotification, object: nil);
-    }
 
-    func menuDidChangeItemNotification(noti : NSNotification ){
+    override func menuDidChangeItemNotification(noti : NSNotification ){
+        super.menuDidChangeItemNotification(noti)
         self.createMenuItemsIfNeeded()
     }
     
@@ -69,16 +59,14 @@ class Plugin: NSObject {
      */
     func createMenuItemsIfNeeded() {
         
-        var item = NSApp.mainMenu??.itemWithTitle("Edit")
-        if let item = item {
+        if let item = NSApp.mainMenu??.itemWithTitle("Edit") {
             if ( item.submenu?.itemWithTitle(generateMenuItem.title) == nil ) {
                 item.submenu?.addItem(NSMenuItem.separatorItem())
                 item.submenu?.addItem(generateMenuItem)
             }
         }
         
-        item = NSApp.mainMenu??.itemWithTitle("Editor")
-        if let item = item {
+        if let item = NSApp.mainMenu??.itemWithTitle("Editor") {
             if ( item.submenu?.itemWithTitle(settingsMenuItem.title) == nil ) {
                 item.submenu?.insertItem(settingsMenuItem, atIndex: 0)
             }

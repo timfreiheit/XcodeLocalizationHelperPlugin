@@ -18,11 +18,15 @@ class LHGenerateMenuItem : NSMenuItem {
     }
     
     func doMenuAction(){
+        LHImagesParser().searchImages(IDEKitHelper.currentProjectPath())
         
         var projectDir = IDEKitHelper.currentProjectPath()
         if let projectDir = projectDir {
-            var generator = LHStringsFileGenerator()
-            generator.generateFromProject(projectDir)
+            var stringsGenerator = LHStringsFileGenerator()
+            stringsGenerator.generateFromProject(projectDir)
+            
+            var imagesGenerator = LHImagesFileGenerator()
+            imagesGenerator.generateFromProject(projectDir)
             
             let readyAlert: NSAlert = NSAlert()
             readyAlert.messageText = "Generation completed"

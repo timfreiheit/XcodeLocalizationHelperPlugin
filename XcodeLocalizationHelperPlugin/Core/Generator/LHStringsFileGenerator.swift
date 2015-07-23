@@ -77,7 +77,7 @@ class LHStringsFileGenerator {
             var file = folder.stringByAppendingPathComponent("\(className).swift")
             
             // remove current file if needed
-            if (!NSFileManager.defaultManager().fileExistsAtPath(folder)) {
+            if (!NSFileManager.defaultManager().fileExistsAtPath(file)) {
                 NSFileManager.defaultManager().removeItemAtPath(file,error: nil)
             }
             

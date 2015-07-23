@@ -25,7 +25,11 @@
 		CAB4CE731B5EC429007D866A /* LocalizationParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB4CE721B5EC429007D866A /* LocalizationParser.swift */; };
 		CAB4CE791B5EC4C1007D866A /* IDEConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB4CE751B5EC4C1007D866A /* IDEConstants.swift */; };
 		CAB4CE7A1B5EC4C1007D866A /* IDEKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB4CE771B5EC4C1007D866A /* IDEKitHelper.m */; };
+		CAB5BB721B61135A0086698C /* LHImagesFileGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB5BB711B61135A0086698C /* LHImagesFileGenerator.swift */; };
+		CAB5BB741B6113E40086698C /* LHImagesConstantsFileGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB5BB731B6113E40086698C /* LHImagesConstantsFileGenerator.swift */; };
 		CABA4ED01B6045B3005EDEE3 /* LHImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABA4ECF1B6045B3005EDEE3 /* LHImage.swift */; };
+		CABA4ED21B60501B005EDEE3 /* LHImagesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABA4ED11B60501B005EDEE3 /* LHImagesParser.swift */; };
+		CADAE6191B60EEE500F70FBE /* BasePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADAE6181B60EEE500F70FBE /* BasePlugin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,7 +56,11 @@
 		CAB4CE761B5EC4C1007D866A /* IDEKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEKitHelper.h; sourceTree = "<group>"; };
 		CAB4CE771B5EC4C1007D866A /* IDEKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEKitHelper.m; sourceTree = "<group>"; };
 		CAB4CE781B5EC4C1007D866A /* XcodePrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodePrivate.h; sourceTree = "<group>"; };
+		CAB5BB711B61135A0086698C /* LHImagesFileGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LHImagesFileGenerator.swift; sourceTree = "<group>"; };
+		CAB5BB731B6113E40086698C /* LHImagesConstantsFileGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LHImagesConstantsFileGenerator.swift; sourceTree = "<group>"; };
 		CABA4ECF1B6045B3005EDEE3 /* LHImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LHImage.swift; sourceTree = "<group>"; };
+		CABA4ED11B60501B005EDEE3 /* LHImagesParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LHImagesParser.swift; sourceTree = "<group>"; };
+		CADAE6181B60EEE500F70FBE /* BasePlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePlugin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +159,8 @@
 			children = (
 				CA337A3C1B5BF8E4004B4AEB /* LHStringsFileGenerator.swift */,
 				CA337A3D1B5BF8E4004B4AEB /* LHLocalizationConstantsFileGenerator.swift */,
+				CAB5BB711B61135A0086698C /* LHImagesFileGenerator.swift */,
+				CAB5BB731B6113E40086698C /* LHImagesConstantsFileGenerator.swift */,
 			);
 			path = Generator;
 			sourceTree = "<group>";
@@ -195,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				CAB4CE721B5EC429007D866A /* LocalizationParser.swift */,
+				CABA4ED11B60501B005EDEE3 /* LHImagesParser.swift */,
 			);
 			name = Parser;
 			path = Extensions/Parser;
@@ -203,12 +214,21 @@
 		CAB4CE741B5EC4C1007D866A /* IDEHelper */ = {
 			isa = PBXGroup;
 			children = (
+				CADAE6171B60EED900F70FBE /* Base */,
 				CAB4CE751B5EC4C1007D866A /* IDEConstants.swift */,
 				CAB4CE761B5EC4C1007D866A /* IDEKitHelper.h */,
 				CAB4CE771B5EC4C1007D866A /* IDEKitHelper.m */,
 				CAB4CE781B5EC4C1007D866A /* XcodePrivate.h */,
 			);
 			path = IDEHelper;
+			sourceTree = "<group>";
+		};
+		CADAE6171B60EED900F70FBE /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				CADAE6181B60EEE500F70FBE /* BasePlugin.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,12 +300,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA2463401B5F7EFF003E314F /* LHPreferences.swift in Sources */,
+				CAB5BB721B61135A0086698C /* LHImagesFileGenerator.swift in Sources */,
 				CA337A531B5BF8E4004B4AEB /* Plugin.swift in Sources */,
 				CA337A4A1B5BF8E4004B4AEB /* LHExtension.swift in Sources */,
 				CABA4ED01B6045B3005EDEE3 /* LHImage.swift in Sources */,
 				CA337A4E1B5BF8E4004B4AEB /* LHLocalization.swift in Sources */,
 				CA670CE71B5EEB59009A6211 /* LHSettingsWindowController.swift in Sources */,
+				CAB5BB741B6113E40086698C /* LHImagesConstantsFileGenerator.swift in Sources */,
+				CABA4ED21B60501B005EDEE3 /* LHImagesParser.swift in Sources */,
 				CA337A4B1B5BF8E4004B4AEB /* LHStringsFileGenerator.swift in Sources */,
+				CADAE6191B60EEE500F70FBE /* BasePlugin.swift in Sources */,
 				CAB4CE731B5EC429007D866A /* LocalizationParser.swift in Sources */,
 				CA337A4C1B5BF8E4004B4AEB /* LHLocalizationConstantsFileGenerator.swift in Sources */,
 				CA670CEB1B5EED0E009A6211 /* LHGenerateMenuItem.swift in Sources */,

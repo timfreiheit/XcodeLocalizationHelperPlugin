@@ -8,11 +8,11 @@
 
 import Foundation
 
-class LHImage {
+class LHImage : Printable{
  
     var name: String
     var path: String
-    
+
     init(name: String, path: String){
         self.name = name
         self.path = path
@@ -20,7 +20,7 @@ class LHImage {
     
     var description: String {
         get{
-            return "LHImage{ name:\(name), path: \(path)}"
+            return "LHImage{ name:\(name) }"
         }
     }
 }

@@ -21,6 +21,7 @@
 //  SOFTWARE.
 
 #import <Foundation/Foundation.h>
+#import "XcodePrivate.h"
 
 
 @interface IDEKitHelper : NSObject
@@ -28,6 +29,7 @@
 + (NSInteger)currentLineNumber;
 + (NSString *)currentProjectPath;
 + (NSString *)currentFilePath; // starting from root (currentProjectPath)
++ (IDEWorkspace *)currentWorkspace;
 
 + (void)selectAndHighlightLineInCurrentDocument:(NSUInteger)lineNumber;
 + (void)switchActiveTabToFile:(NSString *)file;

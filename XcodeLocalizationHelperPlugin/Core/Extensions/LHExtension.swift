@@ -26,8 +26,8 @@ extension String {
     }
     
     func toVariableNameFromValidName() -> String {
-        return self.stringByReplacingOccurrencesOfString("-", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
-            .stringByReplacingOccurrencesOfString(".", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        return self.stringByReplacingOccurrencesOfString("-", withString: "_", options: NSStringCompareOptions.LiteralSearch, range: nil)
+            .stringByReplacingOccurrencesOfString(".", withString: "_", options: NSStringCompareOptions.LiteralSearch, range: nil)
     }
 }
 

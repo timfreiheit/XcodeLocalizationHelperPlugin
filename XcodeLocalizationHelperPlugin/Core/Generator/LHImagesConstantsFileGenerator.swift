@@ -11,7 +11,43 @@ import Foundation
 class LHImagesConstantsFileGenerator {
     
     func generate(keys: Set<String>, className : String) -> String {
-        return ""
+        var file = "" +
+            "//\n" +
+            "//  \(className).swift\n" +
+            "//\n" +
+            "//  Created By XcodeLocalizationHelperPlugin\n" +
+            "//  Generated Source. No not modify\n" +
+            "//\n" +
+            "\n" +
+            "class \(className) {\n " +
+            "\n" + generateHelperMethods()
+        
+        for key in keys {
+            file += "\n" + generateVariable(key)
+        }
+        
+        file += "}"
+        
+        return file
+    }
+    
+    func generateHelperMethods() -> String {
+        var v = ""
+        return v
+    }
+    
+    func generateVariable(key: String) -> String {
+        
+        var name = key.toVariableNameFromValidName()
+        
+        var v = "" +
+            "   static var \(name) : String {\n" +
+            "       get { \n" +
+            "           return UIImage(named: \"\(key)\") \n" +
+            "       } \n" +
+            "   }\n" +
+            "\n"
+        return v
     }
     
 }

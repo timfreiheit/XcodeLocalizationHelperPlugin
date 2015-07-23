@@ -65,6 +65,12 @@ private extension String {
                 fileName = component.stringByReplacingOccurrencesOfString(".appiconset", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
                 break
             }
+            
+            if (component.endWith(".launchimage")) {
+                fileName = component.stringByReplacingOccurrencesOfString(".launchimage", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                break
+            }
+            
         }
         
         if (fileName == nil) {

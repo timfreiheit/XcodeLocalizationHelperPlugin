@@ -19,10 +19,10 @@
 		CA337A521B5BF8E4004B4AEB /* NSObject_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA337A461B5BF8E4004B4AEB /* NSObject_Extension.swift */; };
 		CA337A531B5BF8E4004B4AEB /* Plugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA337A471B5BF8E4004B4AEB /* Plugin.swift */; };
 		CA53B3AE1B644D18009C558D /* LHLocalizationTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA53B3AD1B644D18009C558D /* LHLocalizationTable.swift */; };
-		CA670CE51B5EEB3D009A6211 /* LHSettingWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA670CE41B5EEB3D009A6211 /* LHSettingWindow.xib */; };
 		CA670CE71B5EEB59009A6211 /* LHSettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA670CE61B5EEB59009A6211 /* LHSettingsWindowController.swift */; };
 		CA670CE91B5EECD0009A6211 /* LHSettingsMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA670CE81B5EECD0009A6211 /* LHSettingsMenuItem.swift */; };
 		CA670CEB1B5EED0E009A6211 /* LHGenerateMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA670CEA1B5EED0E009A6211 /* LHGenerateMenuItem.swift */; };
+		CA8C367C1B65497D00B9EAB1 /* LHSettingWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA8C367B1B65497D00B9EAB1 /* LHSettingWindow.xib */; };
 		CAB4CE731B5EC429007D866A /* LocalizationParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB4CE721B5EC429007D866A /* LocalizationParser.swift */; };
 		CAB4CE791B5EC4C1007D866A /* IDEConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB4CE751B5EC4C1007D866A /* IDEConstants.swift */; };
 		CAB4CE7A1B5EC4C1007D866A /* IDEKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB4CE771B5EC4C1007D866A /* IDEKitHelper.m */; };
@@ -50,10 +50,10 @@
 		CA337A461B5BF8E4004B4AEB /* NSObject_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObject_Extension.swift; sourceTree = "<group>"; };
 		CA337A471B5BF8E4004B4AEB /* Plugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plugin.swift; sourceTree = "<group>"; };
 		CA53B3AD1B644D18009C558D /* LHLocalizationTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LHLocalizationTable.swift; sourceTree = "<group>"; };
-		CA670CE41B5EEB3D009A6211 /* LHSettingWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LHSettingWindow.xib; sourceTree = "<group>"; };
 		CA670CE61B5EEB59009A6211 /* LHSettingsWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LHSettingsWindowController.swift; sourceTree = "<group>"; };
 		CA670CE81B5EECD0009A6211 /* LHSettingsMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LHSettingsMenuItem.swift; sourceTree = "<group>"; };
 		CA670CEA1B5EED0E009A6211 /* LHGenerateMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LHGenerateMenuItem.swift; sourceTree = "<group>"; };
+		CA8C367B1B65497D00B9EAB1 /* LHSettingWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LHSettingWindow.xib; sourceTree = "<group>"; };
 		CAB4CE721B5EC429007D866A /* LocalizationParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationParser.swift; sourceTree = "<group>"; };
 		CAB4CE751B5EC4C1007D866A /* IDEConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDEConstants.swift; sourceTree = "<group>"; };
 		CAB4CE761B5EC4C1007D866A /* IDEKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEKitHelper.h; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 		CA670CDE1B5EE09D009A6211 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CA670CE41B5EEB3D009A6211 /* LHSettingWindow.xib */,
+				CA8C367B1B65497D00B9EAB1 /* LHSettingWindow.xib */,
 				CA670CE61B5EEB59009A6211 /* LHSettingsWindowController.swift */,
 			);
 			path = ViewController;
@@ -293,7 +293,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA670CE51B5EEB3D009A6211 /* LHSettingWindow.xib in Resources */,
+				CA8C367C1B65497D00B9EAB1 /* LHSettingWindow.xib in Resources */,
 				CA2463421B5F7F2B003E314F /* defaultPrefs.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

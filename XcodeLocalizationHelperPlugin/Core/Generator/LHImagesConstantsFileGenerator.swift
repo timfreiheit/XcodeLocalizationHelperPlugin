@@ -19,8 +19,7 @@ class LHImagesConstantsFileGenerator {
             "//  Generated Source. No not modify\n" +
             "//\n" +
             "\n" +
-            "class \(className) {\n " +
-            "\n" + generateHelperMethods()
+            "class \(className) {\n "
         
         for key in keys {
             file += "\n" + generateVariable(key)
@@ -29,11 +28,6 @@ class LHImagesConstantsFileGenerator {
         file += "}"
         
         return file
-    }
-    
-    func generateHelperMethods() -> String {
-        var v = ""
-        return v
     }
     
     func generateVariable(key: String) -> String {
@@ -45,8 +39,7 @@ class LHImagesConstantsFileGenerator {
             "       get { \n" +
             "           return UIImage(named: \"\(key)\") \n" +
             "       } \n" +
-            "   }\n" +
-            "\n"
+            "   }\n"
         return v
     }
     

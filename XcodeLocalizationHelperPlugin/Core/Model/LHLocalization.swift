@@ -11,14 +11,16 @@ class LHLocalization : Printable {
     
     var key: String
     var value: String
-    var language : String?
+    var language : String
     var tableName : String
+    var fileName : String
     
-    init(key: String, value: String, language: String?, tableName : String){
+    init(key: String, value: String, language: String?, tableName : String, fileName: String){
         self.key = key
         self.value = value
-        self.language = language
+        self.language = language ?? BASE_LANGUAGE
         self.tableName = tableName
+        self.fileName = fileName
     }
     
     var description: String {

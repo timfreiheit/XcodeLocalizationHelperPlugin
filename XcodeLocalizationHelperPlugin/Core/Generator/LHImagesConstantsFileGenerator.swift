@@ -41,7 +41,7 @@ class LHImagesConstantsFileGenerator {
         var name = key.toVariableNameFromValidName()
         
         var v = "" +
-            "   static var \(name) : String {\n" +
+            "   static var \(name) : UIImage? {\n" +
             "       get { \n" +
             "           return UIImage(named: \"\(key)\") \n" +
             "       } \n" +

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LHImagesFileGenerator {
+class LHImagesFileProcessor {
     func generateFromProject(projectDir : String){
         
         println("generate files for project in: \(projectDir)")

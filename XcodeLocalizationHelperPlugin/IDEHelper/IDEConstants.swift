@@ -33,6 +33,8 @@ class IDENotification {
     static let IDENavigableItemCoordinatorObjectGraphChangeNotificationGet = "IDENavigableItemCoordinatorObjectGraphChangeNotificationGet"
     static let IDEIndexDidChangeStateNotification = "IDEIndexDidChangeStateNotification"
     
+    static let IDEEditorDocumentWillSaveNotification = "IDEEditorDocumentWillSaveNotification"
+    
     static let ExecutionEnvironmentLastUserInitiatedBuildCompletedNotification = "ExecutionEnvironmentLastUserInitiatedBuildCompletedNotification"
     
     static let DVTUndoManagerWasResetNotification = "DVTUndoManagerWasResetNotification"
@@ -47,5 +49,6 @@ class IDENotification {
     static let TSPluginDidLoadNotification = "TSPluginDidLoadNotification"
     
     static let PBXProjectDidOpenNotification = "PBXProjectDidOpenNotification"
+    static let PBXProjectDidCloseNotification = "PBXProjectDidCloseNotification"
     
 }

@@ -22,6 +22,10 @@
 
 #import <Cocoa/Cocoa.h>
 
+@interface PBXProject : NSObject
+@property(readonly) NSString *path;
+@end
+
 @interface IDESourceControlManager : NSObject
 + (IDESourceControlManager *)sharedSourceControlManager;
 @property(readonly) NSArray *workingTrees; // @synthesize workingTrees=_workingTrees; // zzz

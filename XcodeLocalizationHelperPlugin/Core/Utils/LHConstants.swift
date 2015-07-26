@@ -24,3 +24,6 @@ let variableRegularExpression = NSRegularExpression(pattern: kVariablePattern, o
 
 let kValidNamePattern : String = "[a-zA-Z_][a-zA-Z_\\.\\-]*"
 let validNameRegularExpression = NSRegularExpression(pattern: kValidNamePattern, options: nil, error: nil)!
+
+
+let BASE_LANGUAGE = "Base"

@@ -59,7 +59,7 @@ class LocalizationParser {
                 }
             }
             if let key = key , value = value, tableName = tableName {
-                var localization = LHLocalization(key: key, value: value, language: languageDesignation, tableName: tableName)
+                var localization = LHLocalization(key: key, value: value, language: languageDesignation, tableName: tableName, fileName: filePath)
                 localizations.append(localization)
             }
             
@@ -77,6 +77,36 @@ class LocalizationParser {
             }
         }
         return string
+    }
+    
+    
+    /**
+    * search all available .strings files
+    */
+    func searchLocalizationFiles(dir : String) -> [String] {
+        
+        var ignoredPaths = LHPreferences.ignoredPaths ?? []
+        
+        var files: [String] = []
+        
+        let fileManager = NSFileManager.defaultManager()
+        let enumerator = fileManager.enumeratorAtPath(dir)!
+        
+        loop: for element in enumerator {
+            if let element  = element as? String {
+                if element.endWith(".strings") {
+                    // check if file should be ignored
+                    for path in ignoredPaths {
+                        if (element.startsWith(path)) {
+                            continue loop
+                        }
+                    }
+                    files.append(element)
+                }
+            }
+        }
+        
+        return files;
     }
     
     /**

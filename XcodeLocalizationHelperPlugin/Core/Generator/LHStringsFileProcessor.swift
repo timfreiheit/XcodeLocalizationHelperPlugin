@@ -10,7 +10,7 @@ import Foundation
 import AppKit
 
 
-class LHStringsFileGenerator {
+class LHStringsFileProcessor {
     
     func generateFromProject(projectDir : String){
         
@@ -18,9 +18,8 @@ class LHStringsFileGenerator {
         
         var values : [LHLocalization] = []
         
-        var files = searchLocalizationFiles(projectDir);
-        
         var parser = LocalizationParser()
+        var files = parser.searchLocalizationFiles(projectDir);
         for file in files {
             var localiztions = parser.localizationsFromContentsOfFile(projectDir + "/" + file)
             if let localiztions = localiztions {
@@ -29,9 +28,6 @@ class LHStringsFileGenerator {
         }
         
         var folder = projectDir.stringByAppendingPathComponent(LHPreferences.outputPath)
-        if (!NSFileManager.defaultManager().fileExistsAtPath(folder)) {
-            NSFileManager.defaultManager() .createDirectoryAtPath(folder, withIntermediateDirectories: false, attributes: nil, error: nil)
-        }
         
         self.createLocalizationFiles(folder, values: values)
     
@@ -41,6 +37,13 @@ class LHStringsFileGenerator {
      * generate files from localizations
      */
     func createLocalizationFiles(folder: String, values : [LHLocalization]){
+        
+        println("createLocalizationFiles: items: \(values.count)")
+        
+        if (!NSFileManager.defaultManager().fileExistsAtPath(folder)) {
+            NSFileManager.defaultManager() .createDirectoryAtPath(folder, withIntermediateDirectories: false, attributes: nil, error: nil)
+        }
+        
         var tableNames = Set<String>()
         
         if (LHPreferences.splitOutput == true) {
@@ -89,35 +92,6 @@ class LHStringsFileGenerator {
             }
         }
 
-    }
-    
-    /**
-     * search all available .strings files
-     */
-    private func searchLocalizationFiles(dir : String) -> [String] {
-        
-        var ignoredPaths = LHPreferences.ignoredPaths ?? []
-        
-        var files: [String] = []
-        
-        let fileManager = NSFileManager.defaultManager()
-        let enumerator = fileManager.enumeratorAtPath(dir)!
-        
-        loop: for element in enumerator {
-            if let element  = element as? String {
-                if element.endWith(".strings") {
-                    // check if file should be ignored
-                    for path in ignoredPaths {
-                        if (element.startsWith(path)) {
-                            continue loop
-                        }
-                    }
-                    files.append(element)
-                }
-            }
-        }
-        
-        return files;
     }
     
 }

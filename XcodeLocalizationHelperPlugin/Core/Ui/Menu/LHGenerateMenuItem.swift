@@ -22,10 +22,10 @@ class LHGenerateMenuItem : NSMenuItem {
         
         var projectDir = IDEKitHelper.currentProjectPath()
         if let projectDir = projectDir {
-            var stringsGenerator = LHStringsFileGenerator()
+            var stringsGenerator = LHStringsFileProcessor()
             stringsGenerator.generateFromProject(projectDir)
             
-            var imagesGenerator = LHImagesFileGenerator()
+            var imagesGenerator = LHImagesFileProcessor()
             imagesGenerator.generateFromProject(projectDir)
             
             let readyAlert: NSAlert = NSAlert()

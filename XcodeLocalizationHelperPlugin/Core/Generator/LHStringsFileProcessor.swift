@@ -66,16 +66,21 @@ class LHStringsFileProcessor {
                 })
                 fileName = "Strings\(tableName)"
             }
-            var keySet = Set<String>()
             
+            //filter doublicates
+            var keySet = Set<String>()
+            var values : [LHLocalization] = []
             for value in valuesForTable {
-                keySet.insert(value.key)
+                if (keySet.contains(value.key) == false) {
+                    keySet.insert(value.key)
+                    values.append(value)
+                }
             }
             
             var generator = LHLocalizationConstantsFileGenerator()
             
             let className = fileName
-            var fileContent = generator.generate(keySet, className: className)
+            var fileContent = generator.generate(values, className: className)
             
             var file = folder.stringByAppendingPathComponent("\(className).swift")
             

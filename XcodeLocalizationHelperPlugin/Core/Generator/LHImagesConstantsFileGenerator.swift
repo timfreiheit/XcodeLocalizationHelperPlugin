@@ -10,7 +10,7 @@ import Foundation
 
 class LHImagesConstantsFileGenerator {
     
-    func generate(keys: Set<String>, className : String) -> String {
+    func generate(images: [LHImage], className : String) -> String {
         var file = "" +
             "//\n" +
             "//  \(className).swift\n" +
@@ -21,8 +21,8 @@ class LHImagesConstantsFileGenerator {
             "\n" +
             "class \(className) {\n "
         
-        for key in keys {
-            file += "\n" + generateVariable(key)
+        for image in images {
+            file += "\n" + generateVariable(image)
         }
         
         file += "}"
@@ -30,8 +30,9 @@ class LHImagesConstantsFileGenerator {
         return file
     }
     
-    func generateVariable(key: String) -> String {
+    func generateVariable(image: LHImage) -> String {
         
+        let key = image.name
         var name = key.toVariableNameFromValidName()
         
         var v = "" +

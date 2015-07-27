@@ -18,16 +18,18 @@ class LHImagesFileProcessor {
         images = parser.filterNotValidKeys(images)
         
         var keySet = Set<String>()
-        
+        var values : [LHImage] = []
         for value in images {
-            keySet.insert(value.name)
+            if (keySet.contains(value.name) == false) {
+                keySet.insert(value.name)
+                values.append(value)
+            }
         }
         
         var generator = LHImagesConstantsFileGenerator()
         
         let className = "Images"
-        var fileContent = generator.generate(keySet, className: className)
-        
+        var fileContent = generator.generate(values, className: className)
         
         var folder = projectDir.stringByAppendingPathComponent(LHPreferences.outputPath)
         if (!NSFileManager.defaultManager().fileExistsAtPath(folder)) {

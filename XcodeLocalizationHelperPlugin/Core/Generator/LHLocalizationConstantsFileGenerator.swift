@@ -9,7 +9,7 @@ import Foundation
 
 class LHLocalizationConstantsFileGenerator {
     
-    func generate(keys: Set<String>, className : String) -> String {
+    func generate(values: [LHLocalization], className : String) -> String {
         var file = "" +
         "//\n" +
         "//  \(className).swift\n" +
@@ -21,8 +21,8 @@ class LHLocalizationConstantsFileGenerator {
         "class \(className) {\n " +
         "\n" + generateHelperMethods()
         
-        for key in keys {
-            file += "\n" + generateVariable(key)
+        for value in values {
+            file += "\n" + generateVariable(value)
         }
         
         file += "}"
@@ -38,19 +38,20 @@ class LHLocalizationConstantsFileGenerator {
         return v
     }
     
-    func generateVariable(key: String) -> String {
+    func generateVariable(l: LHLocalization) -> String {
         
-        var name = key.toVariableNameFromValidName()
+        let key = l.key
+        let name = key.toVariableNameFromValidName()
         
         var v = "" +
         "   static var \(name) : String {\n" +
         "       get { \n" +
-        "           return localized( \"\(key)\" ) \n" +
+        "           return localized(\"\(key)\") \n" +
         "       } \n" +
         "   }\n" +
         "\n" +
         "   static func \(name)(comment: String) -> String {\n" +
-        "       return localized( \"\(key)\" , comment: comment)\n" +
+        "       return localized(\"\(key)\", comment: comment)\n" +
         "   }\n"
         return v
     }
@@ -68,7 +69,7 @@ class LHLocalizationConstantsFileGenerator {
 class Strings {
     
     private static func localized(key: String,comment: String = "") -> String {
-        return NSLocalizedString(key,comment: comment)
+        return NSLocalizedString(key, comment: comment)
     }
     
     static var KEY: String {

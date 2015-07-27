@@ -124,8 +124,8 @@ class Plugin: BasePlugin{
             if let projectDir = projectDir {
                 
                 dispatch_after_delay(1, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-                    var stringsGenerator = LHStringsFileProcessor()
-                    stringsGenerator.generateFromProject(projectDir)
+                    //var stringsGenerator = LHStringsFileProcessor()
+                    //stringsGenerator.generateFromProject(projectDir)
                     
                     var imagesGenerator = LHImagesFileProcessor()
                     imagesGenerator.generateFromProject(projectDir)

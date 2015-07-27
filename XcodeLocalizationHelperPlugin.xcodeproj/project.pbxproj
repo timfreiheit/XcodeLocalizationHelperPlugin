@@ -264,7 +264,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
-				ORGANIZATIONNAME = AppGrade;
+				ORGANIZATIONNAME = "Tim Freiheit";
 				TargetAttributes = {
 					B5B367FC1AAF6A8500A9D781 = {
 						CreatedOnToolsVersion = 6.3;

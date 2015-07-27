@@ -12,8 +12,12 @@ import Foundation
  */
 class LocalizationParser {
     
+    static func tableNameFromFile(file: String) -> String? {
+        return file.lastPathComponent.stringByDeletingPathExtension
+    }
+    
     func localizationsFromContentsOfFile(filePath: String) -> [LHLocalization]? {
-        var tableName: String? = filePath.lastPathComponent.stringByDeletingPathExtension
+        var tableName: String? = LocalizationParser.tableNameFromFile(filePath)
         if tableName == nil {
             return nil
         }
@@ -101,7 +105,7 @@ class LocalizationParser {
                             continue loop
                         }
                     }
-                    files.append(element)
+                    files.append(dir + "/" + element)
                 }
             }
         }

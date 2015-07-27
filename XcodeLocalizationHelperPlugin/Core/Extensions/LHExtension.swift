@@ -73,3 +73,16 @@ extension NSRegularExpression {
         return false
     }
 }
+
+extension NSFileManager {
+    
+    func lastModified(file: String) -> NSDate {
+        var error : NSError?
+        var attrs = self.attributesOfItemAtPath(file, error: &error)
+        if let attrs = attrs where error == nil {
+            return (attrs[NSFileModificationDate] as? NSDate) ?? NSDate(timeIntervalSince1970: 0)
+        }
+        return NSDate(timeIntervalSince1970: 0)
+    }
+    
+}

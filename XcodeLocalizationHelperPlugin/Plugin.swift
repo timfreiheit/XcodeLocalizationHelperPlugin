@@ -120,18 +120,10 @@ class Plugin: BasePlugin{
      */
     func onProjectCompiled(noti : NSNotification ){
         if (LHPreferences.runOnBuild == true) {
-            var projectDir = IDEKitHelper.currentProjectPath()
-            if let projectDir = projectDir {
-                
-                dispatch_after_delay(1, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-                    //var stringsGenerator = LHStringsFileProcessor()
-                    //stringsGenerator.generateFromProject(projectDir)
-                    
-                    var imagesGenerator = LHImagesFileProcessor()
-                    imagesGenerator.generateFromProject(projectDir)
-                })
-            
-            }
+            dispatch_after_delay(1, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                let project = self.getCurrentProject()
+                project?.generateFiles()
+            })
         }
     }
 

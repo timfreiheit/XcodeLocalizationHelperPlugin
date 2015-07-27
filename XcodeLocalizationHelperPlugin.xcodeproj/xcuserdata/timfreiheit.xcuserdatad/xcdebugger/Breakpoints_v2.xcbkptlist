@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "XcodeLocalizationHelperPlugin/Core/Extensions/Parser/LocalizationParser.swift"
-            timestampString = "459621476.186409"
+            timestampString = "459722667.026218"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "localizationsFromContentsOfFile(_:)"
             landmarkType = "5">
          </BreakpointContent>

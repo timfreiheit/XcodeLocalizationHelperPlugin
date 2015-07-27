@@ -18,7 +18,7 @@ class LHProject{
     /**
      * [tablename: localizations]
      */
-    var localizations : [String: LHLocalizationTable ] = [:]
+    var localizations : [String: LHLocalizationTable] = [:]
     
     convenience init(project: PBXProject){
         self.init(projectPath: project.path.stringByDeletingLastPathComponent)
@@ -41,40 +41,33 @@ class LHProject{
         var parser = LocalizationParser()
         var files = parser.searchLocalizationFiles(projectPath);
         for file in files {
-            parseAndAddLocalizationsFromFile(projectPath + "/" + file)
+            if let tableName = LocalizationParser.tableNameFromFile(file) {
+                if let table = self.localizations[tableName] {
+                    table.parseAndAddLocalizationsFromFile(file)
+                } else {
+                    self.localizations[tableName] = LHLocalizationTable(file: file)
+                }
+            }
         }
     }
-    
     
     /**
      * updates all localizations from selected file
      * and recreate generated files
      */
     func updateLocalizationFile(file : String){
-        
-        for (key,value) in localizations {
-            value.removeAllLocalizationsWithFile(file)
-        }
-        
-        parseAndAddLocalizationsFromFile(file)
-        
-        generateLocalisationFiles()
-    }
-    
-    private func parseAndAddLocalizationsFromFile(file: String){
-        
-        var parser = LocalizationParser()
-        var values = parser.localizationsFromContentsOfFile(file)
-        if let values = values where count(values) > 0 {
-            let first = values[0]
-            let table = self.localizations[first.tableName] ?? LHLocalizationTable(name: first.tableName)
-            
-            for value in values {
-                table.addLocalization(value)
+        let tableName = LocalizationParser.tableNameFromFile(file)
+        if let tableName = tableName {
+            if (self.localizations[tableName] == nil) {
+                self.localizations[tableName] = LHLocalizationTable(file: file)
             }
-            localizations[first.tableName] = table
-            
         }
+        
+        for (key,value) in self.localizations {
+            value.updateIfNeeded()
+        }
+        self.generateLocalisationFiles()
+        
     }
     
     /**
@@ -82,14 +75,30 @@ class LHProject{
      */
     func generateLocalisationFiles(){
         var folder = projectPath.stringByAppendingPathComponent(LHPreferences.outputPath)
-        let processor = LHStringsFileProcessor()
         
         var allLocalizations : [LHLocalization] = []
         for (key,value) in localizations {
             allLocalizations += value.getLocalizationsFromBaseLanguage()
         }
         
+        let processor = LHStringsFileProcessor()
         processor.createLocalizationFiles(folder, values: allLocalizations)
+    }
+    
+    /**
+     * generates alle files for the current project
+     */
+    func generateFiles(){
+        
+        for (key,value) in localizations {
+            value.updateIfNeeded()
+        }
+        self.generateLocalisationFiles()
+        
+        // todo use cached values
+        var imagesGenerator = LHImagesFileProcessor()
+        imagesGenerator.generateFromProject(projectPath)
+        
     }
     
 }

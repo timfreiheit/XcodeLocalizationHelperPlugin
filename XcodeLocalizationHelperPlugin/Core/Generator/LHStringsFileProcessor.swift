@@ -21,7 +21,7 @@ class LHStringsFileProcessor {
         var parser = LocalizationParser()
         var files = parser.searchLocalizationFiles(projectDir);
         for file in files {
-            var localiztions = parser.localizationsFromContentsOfFile(projectDir + "/" + file)
+            var localiztions = parser.localizationsFromContentsOfFile(file)
             if let localiztions = localiztions {
                 values += parser.filterNotValidKeys(localiztions)
             }

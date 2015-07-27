@@ -49,7 +49,6 @@ class LHLocalizationTable {
         let oldLastModified = self.lastModified
         for file in files {
             let lastModified = NSFileManager.defaultManager().lastModified(file)
-            println("\(file) lastModified: \(lastModified)")
             if (lastModified.timeIntervalSince1970 > oldLastModified.timeIntervalSince1970) {
                 self.removeAllLocalizationsWithFile(file)
                 self.parseAndAddLocalizationsFromFile(file)

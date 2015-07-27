@@ -68,7 +68,6 @@ class Plugin: BasePlugin{
                 let project = self.getCurrentProject()
                 // run after 1 second to wait until the file is saved
                 dispatch_after_delay(1, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-                    println("Updated String Resource: \(file)")
                     project?.updateLocalizationFile(file)
                 })
             }
